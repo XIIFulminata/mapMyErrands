@@ -16,11 +16,13 @@ export class AboutPage {
   removeItem(item){};
   editItem(item){};
   goToMapView(){};
-  mapPage = MapPage;
+  mapPage;
 
   constructor(public navCtrl: NavController) {
 
     this.showEditIcons = false;
+
+    this.mapPage = MapPage;
 
     this.items = [{"id": "1", "name":'Paul'},
       {"id": "2", "name":'Nick'},
