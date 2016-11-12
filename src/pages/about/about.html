@@ -10,9 +10,24 @@
   <button class="btn delete-list"
           (click)="deleteList()"
           *ngIf="items.length > 0">Delete</button>
+
+  <button class="btn delete-list"
+          (click)="editList()"
+          *ngIf="items.length > 0">Edit</button>
+
   <ion-list [hidden]="items.length <= 0">
     <ion-item *ngFor="let item of items">
-      {{item}}
+      {{item.name}}
+      <!--<button ion-button icon-only menuToggle><ion-icon name="ion-edit"></ion-icon></button>-->
+
+        <span class="glyphicon glyphicon-remove align-edit-icons"
+              [hidden]="!showEditIcons"
+              (click)="removeItem(item)"></span>
+
+      <span class="glyphicon glyphicon-pencil align-edit-icons"
+            [hidden]="!showEditIcons"
+            (click)="editItem(item)"></span>
+
     </ion-item>
   </ion-list>
 
