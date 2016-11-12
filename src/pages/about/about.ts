@@ -9,10 +9,14 @@ import { NavController } from 'ionic-angular';
 export class AboutPage {
 
   items = [];
+  deleteList(event){};
 
   constructor(public navCtrl: NavController) {
 
     this.items = ['Paul', 'Monzy', 'Nick', 'Jay'];
+    this.deleteList = function (event) {
+      this.items = [];
+    }
   }
 
 }

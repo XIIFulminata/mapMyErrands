@@ -7,9 +7,15 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+  <button class="btn delete-list"
+          (click)="deleteList()"
+          *ngIf="items.length > 0">Delete</button>
+  <ion-list [hidden]="items.length <= 0">
     <ion-item *ngFor="let item of items">
       {{item}}
     </ion-item>
   </ion-list>
+
+  <h1 [hidden]="items.length > 0"
+      class="no-items">No items in the list</h1>
 </ion-content>

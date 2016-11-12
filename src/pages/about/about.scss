@@ -11,3 +11,15 @@ ion-title {
   height: 100%;
   text-align: center;
 }
+
+.delete-list{
+  float: right;
+  height: 30px;
+  width: 70px;
+  background-color: deepskyblue;
+}
+
+.no-items{
+  color: lightgray;
+  text-align: center;
+}
