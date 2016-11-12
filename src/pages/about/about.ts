@@ -8,8 +8,11 @@ import { NavController } from 'ionic-angular';
 })
 export class AboutPage {
 
+  items = [];
+
   constructor(public navCtrl: NavController) {
 
+    this.items = ['Paul', 'Monzy', 'Nick', 'Jay'];
   }
 
 }
