@@ -31,6 +31,13 @@
     </ion-item>
   </ion-list>
 
+  <button [hidden]="items.length <= 0"
+          class="route-button"
+          [navPush]="mapPage">
+    Find me shortest route
+  </button>
+
   <h1 [hidden]="items.length > 0"
+      (click)="goToMapView()"
       class="no-items">No items in the list</h1>
 </ion-content>

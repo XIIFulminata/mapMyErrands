@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
+import {MapPage} from "../map/map";
 
 @Component({
   selector: 'page-about',
@@ -14,6 +15,8 @@ export class AboutPage {
   showEditIcons = false;
   removeItem(item){};
   editItem(item){};
+  goToMapView(){};
+  mapPage = MapPage;
 
   constructor(public navCtrl: NavController) {
 
@@ -46,8 +49,12 @@ export class AboutPage {
 
     this.editItem = function(item){
       //Wait for monzy
-    }
+    };
 
+    this.goToMapView = function () {
+      //Save to factory
+
+    };
   }
 
 }
