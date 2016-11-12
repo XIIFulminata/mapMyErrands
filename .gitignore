@@ -21,7 +21,7 @@
 *.zip
 www/build/*
 node_modules
-.idea
+.idea/workspace.xml
 
 # Logs and databases #
 ######################
