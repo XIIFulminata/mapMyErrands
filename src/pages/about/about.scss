@@ -13,6 +13,7 @@ ion-title {
 }
 
 .delete-list{
+  margin-left: 1%;
   float: right;
   height: 30px;
   width: 70px;
@@ -22,4 +23,9 @@ ion-title {
 .no-items{
   color: lightgray;
   text-align: center;
+}
+
+.align-edit-icons{
+  margin-left: 2%;
+  float: right;
 }
