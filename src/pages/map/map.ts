@@ -5,10 +5,15 @@ import { Component } from '@angular/core';
 import {Geolocation} from 'ionic-native';
 import { ToDoService } from '../../services/todo.service';
 import {ToDo} from "../../components/todo";
-/*import arcgisUtils = require('esri/urlUtils');
-import esriMap = require('esri/map');
-import esriDirections = require('esri/dijit/Directions');
-import esriDojoParser = require('dojo/parser');*/
+/*import * as arcgisUtils from "esri/urlUtils";
+import * as esriMap from 'esri/map';
+import * as esriDirections from 'esri/dijit/Directions';
+import * as esriDojoParser from 'dojo/parser';
+import * as borderContainer from 'dijit/layout/BorderContainer';
+import * as contentPane from 'dijit/layout/ContentPane';
+import * as domRemedy from 'dojo/domReady!';*/
+import {SebmGoogleMap} from 'angular2-google-maps/core';
+
 
 
 
