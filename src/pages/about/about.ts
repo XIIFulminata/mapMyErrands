@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
+import {MapPage} from "../map/map";
 
 @Component({
   selector: 'page-about',
@@ -14,10 +15,14 @@ export class AboutPage {
   showEditIcons = false;
   removeItem(item){};
   editItem(item){};
+  goToMapView(){};
+  mapPage;
 
   constructor(public navCtrl: NavController) {
 
     this.showEditIcons = false;
+
+    this.mapPage = MapPage;
 
     this.items = [{"id": "1", "name":'Paul'},
       {"id": "2", "name":'Nick'},
@@ -46,8 +51,12 @@ export class AboutPage {
 
     this.editItem = function(item){
       //Wait for monzy
-    }
+    };
 
+    this.goToMapView = function () {
+      //Save to factory
+
+    };
   }
 
 }
