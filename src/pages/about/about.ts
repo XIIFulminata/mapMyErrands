@@ -32,7 +32,8 @@ export class AboutPage {
     this.deleteList = function (event) {
       this.items = [];
         ToDoService.deleteAll();
-    }
+    };
+
     this.editList = function (event) {
       console.log(this.showEditIcons);
       if(this.showEditIcons == false){
@@ -57,8 +58,7 @@ export class AboutPage {
     };
 
     this.goToMapView = function () {
-      //Save to factory
-
+        navCtrl.push(MapPage);
     };
 
       events.subscribe('Items from TodoService', () => {
@@ -68,5 +68,9 @@ export class AboutPage {
           this.items = ToDoService.getToDos();
       });
   }
+
+    popView(){
+        this.navCtrl.pop();
+    }
 
 }

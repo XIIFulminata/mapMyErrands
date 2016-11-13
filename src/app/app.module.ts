@@ -6,6 +6,7 @@ import { HistoryPage } from '../pages/history/history';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { MapPage } from '../pages/map/map';
+import { AgmCoreModule } from "angular2-google-maps/core";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MapPage } from '../pages/map/map';
     MapPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+      AgmCoreModule.forRoot({apiKey: "AIzaSyCf4_tYh0DMPul0ewcyzdK9l5K_jNHDU9Y", libraries: ["places"]})
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild, OnInit, ElementRef} from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 import { ToDoService } from '../../services/todo.service';
 import {ToDo} from "../../components/todo";
+import {MapsAPILoader} from "angular2-google-maps/core";
 
 
 
@@ -11,11 +12,14 @@ import {ToDo} from "../../components/todo";
   templateUrl: 'home.html',
   providers:[ToDoService]
 })
-export class HomePage {
+export class HomePage implements OnInit{
   todos: ToDo[];
   addToDo(type){};
 
-  constructor(public navCtrl: NavController, private ToDoService: ToDoService) {
+  @ViewChild("search")
+  public searchElementRef: ElementRef;
+
+  constructor(public navCtrl: NavController, private ToDoService: ToDoService, private mapsAPILoader: MapsAPILoader) {
     //this.todos = this.ToDoService.getToDos();
     //console.log(this.todos);
     this.addToDo = function (type) {
@@ -29,11 +33,29 @@ export class HomePage {
       this.item = '';
       this.location = '';
       console.log(this.todos);
+
+      //let input = document.getElementById('Autocomplete');
+
+      //let autocompleteOrigin = new google.maps.places.Autocomplete(input);
     };
   }
 
       ngOnInit(): void {
-        this.getTodos();
+        /*this.mapsAPILoader.load().then(() => {
+          let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+            types: ["address"]
+          });
+          autocomplete.addListener("place_changed", () => {
+            //get the place result
+            let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+
+            //set latitude and longitude
+            //this.latitude = place.geometry.location.lat();
+            console.log("LAT:::: "+place.geometry.location.lat());
+            console.log("LNG::::"+place.geometry.location.lng());
+            //this.longitude = place.geometry.location.lng();
+          });
+        });*/
       }
       getTodos() {
         this.todos = this.ToDoService.getToDos();

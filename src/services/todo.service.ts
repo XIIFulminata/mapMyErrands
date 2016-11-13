@@ -3,6 +3,9 @@ import {ToDo} from "../components/todo";
 
 @Injectable()
 export class ToDoService {
+    getCurrentLocation() {
+        return {lat: 41.316017, lng: -72.929403};
+    }
     getToDos(): ToDo[] {
         return TODOS;
     }

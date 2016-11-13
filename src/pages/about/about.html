@@ -35,7 +35,7 @@
   <button ion-button
           [hidden]="items.length <= 0"
           class="route-button"
-          [navPush]="mapPage">
+          (click)="goToMapView()">
     Find me shortest route
   </button>
 
