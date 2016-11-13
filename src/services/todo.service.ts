@@ -9,10 +9,23 @@ export class ToDoService {
     addToDo(todo): void {
         TODOS.push(todo);
     }
+    deleteAll(): void {
+        TODOS = [];
+    }
+    deleteTodo(id): void {
+        for(var i = 0; i < TODOS.length; i++) {
+            if(TODOS[i].id == id) {
+                TODOS.splice(i,1);
+                console.log(TODOS);
+                return;
+            }
+        }
+    }
 }
 
-export const TODOS: ToDo[] = [
+let TODOS: ToDo[] = [
     {
+        id: 34556,
         type: "buy",
         item: 11,
         displayName: 'Buy apples at Stop and Shop',

@@ -13,20 +13,59 @@ import {ToDo} from "../../components/todo";
 })
 export class HomePage {
   todos: ToDo[];
+  addToDo(type){};
 
   constructor(public navCtrl: NavController, private ToDoService: ToDoService) {
-    //getToDos(): void {
-      this.todos = this.ToDoService.getToDos();
-    console.log(this.todos);
-    this.ToDoService.addToDo({
-      type: "get",
-      item: 16,
-      displayName: 'Nice',
-      location: {lat: 56, lng: 45, placeName: "Stop and Shop", address: "123 Common Ave", placeID: 34555}
-    });
-    console.log('secondar');
-    console.log(this.todos);
-    //}
+    //this.todos = this.ToDoService.getToDos();
+    //console.log(this.todos);
+    this.addToDo = function (type) {
+      ToDoService.addToDo({
+        id: Date.now(),
+        type: type,
+        item: this.item,
+        displayName: type + ' ' + this.item + ' at ' + this.location,
+        location: {lat: 34, lng: 45, placeName: this.location, address: "123 Common Ave", placeID: 34555}
+      });
+      this.item = '';
+      this.location = '';
+      console.log(this.todos);
+    };
   }
 
+      ngOnInit(): void {
+        this.getTodos();
+      }
+      getTodos() {
+        this.todos = this.ToDoService.getToDos();
+        console.log(this.todos);
+      }
 }
+
+
+/*export class HomePage {
+ todos: ToDo[];
+
+ constructor(public navCtrl: NavController, private ToDoService: ToDoService) {
+
+ }
+ ngOnInit(): void {
+ this.getTodos();
+ }
+ getTodos() {
+ this.todos = this.ToDoService.getToDos();
+ console.log(this.todos);
+ }
+ addToDo(type: string, item: string, location: string) {
+ this.ToDoService.addToDo({
+ type: type,
+ item: item,
+ displayName: type + ' ' + item + ' at ' +  location,
+ location: {lat: 34, lng: 45, placeName: location, address: "123 Common Ave", placeID: 34555}
+ });
+ item = '';
+ location = '';
+ console.log(this.todos);
+ };
+
+
+ }*/

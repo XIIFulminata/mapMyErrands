@@ -2,10 +2,14 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 import {MapPage} from "../map/map";
+import { ToDoService } from '../../services/todo.service';
+import { Events } from 'ionic-angular';
+import {ToDo} from "../../components/todo";
 
 @Component({
   selector: 'page-about',
-  templateUrl: 'about.html'
+  templateUrl: 'about.html',
+  providers: [ToDoService]
 })
 export class AboutPage {
 
@@ -18,18 +22,16 @@ export class AboutPage {
   goToMapView(){};
   mapPage;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private ToDoService: ToDoService, public events: Events) {
 
     this.showEditIcons = false;
 
     this.mapPage = MapPage;
 
-    this.items = [{"id": "1", "name":'Paul'},
-      {"id": "2", "name":'Nick'},
-      {"id": "3", "name":'Monzy'},
-      {"id": "4", "name":'Jay'}];
+    this.items = ToDoService.getToDos();
     this.deleteList = function (event) {
       this.items = [];
+        ToDoService.deleteAll();
     }
     this.editList = function (event) {
       console.log(this.showEditIcons);
@@ -47,16 +49,24 @@ export class AboutPage {
         return;
       }
       this.items.splice(index, 1);
+      ToDoService.deleteTodo(item.id);
     };
 
     this.editItem = function(item){
-      //Wait for monzy
+      //Wait for maps
     };
 
     this.goToMapView = function () {
       //Save to factory
 
     };
+
+      events.subscribe('Items from TodoService', () => {
+          // userEventData is an array of parameters, so grab our first and only arg
+          console.log("I am listening");
+          this.showEditIcons = false;
+          this.items = ToDoService.getToDos();
+      });
   }
 
 }
