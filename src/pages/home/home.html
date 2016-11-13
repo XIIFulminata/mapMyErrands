@@ -4,16 +4,23 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2 style="margin-left: 10px;">I want to...</h2>
-  <ion-card>
+<ion-content padding  style="background-image: url('http://www.psdgraphics.com/file/world-map-background.jpg'); background-size: cover"
+>
+  <h2 style="margin-left: 10px;"></h2>
+  <ion-card style="margin-top: 35%;">
     <ion-card-content>
-      <div>Buy
-        <span><input type="text" value="" class="fill-in-blank" [(ngModel)]="item"></span>
-        at
+      <div>Buy<br/><br/>
+        <span><input type="text" value="" class="fill-in-blank" placeholder="item" [(ngModel)]="item"></span><br/><br/>
+        At<br/><br/>
         <span><input id="Autocomplete" type="text" value="" class="fill-in-blank" #search [(ngModel)]="location"></span>
-        <button ion-button large outline item-right icon-left clear (click)="addToDo('Buy',item, location)">
-          <ion-icon name="md-add-circle"></ion-icon>
+        <!--<button ion-button large outline item-right icon-left (click)="addToDo('Buy',item, location)">
+          <ion-icon name="md-add-circle"> ADD</ion-icon>
+        </button>-->
+        <br/>
+        <button ion-button
+                class="route-button above-button"
+                (click)="addToDo('Buy',item, location)">
+          Add to list
         </button>
       </div>
     </ion-card-content>

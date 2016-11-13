@@ -5,9 +5,15 @@
 </ion-header>
 
 <ion-content padding>
-    <h2>Welcome to Map!</h2>
     <sebm-google-map [latitude]="41.316017" [longitude]="-72.929403" [zoom]="8">
-        <sebm-google-map-marker [latitude]="41.316017" [longitude]="-72.929403" [label]="'M'">
+        <sebm-google-map-marker *ngFor="let place of items" [latitude]=place.location.lat [longitude]=place.location.lng>
+            <sebm-google-map-polyline>
+                <sebm-google-map-polyline-point [latitude]=place.location.lat [longitude]=place.location.lng>
+                </sebm-google-map-polyline-point>
+                <sebm-google-map-polyline-point [latitude]=41.236225 [longitude]=-73.035499>
+                </sebm-google-map-polyline-point>
+            </sebm-google-map-polyline>
         </sebm-google-map-marker>
     </sebm-google-map>
+
 </ion-content>

@@ -32,7 +32,7 @@ let TODOS: ToDo[] = [
         type: "buy",
         item: 11,
         displayName: 'Buy apples at Stop and Shop',
-        location: {lat: 34, lng: 45, placeName: "Stop and Shop", address: "123 Common Ave", placeID: 34555}
+        location: {lat: 41.316017, lng: -72.929403, placeName: "Stop and Shop", address: "123 Common Ave", placeID: 34555}
     },
 
 ];

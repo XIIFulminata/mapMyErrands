@@ -66,7 +66,7 @@ export class AboutPage {
           console.log("I am listening");
           this.showEditIcons = false;
           this.items = ToDoService.getToDos();
-        console.log(this.items);
+          console.log(this.items);
       });
   }
 
