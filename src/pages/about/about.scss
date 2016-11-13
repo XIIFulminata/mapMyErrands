@@ -15,9 +15,10 @@ ion-title {
 .delete-list{
   margin-left: 1%;
   float: right;
-  height: 30px;
+  height: 40px;
   width: 70px;
-  background-color: deepskyblue;
+  //background-color: deepskyblue;
+  margin-bottom: 10px;
 }
 
 .no-items{
@@ -31,7 +32,7 @@ ion-title {
 }
 
 .route-button{
-  height: 30px;
+  height: 40px;
   width: 100%;
-  background-color: deepskyblue;
+  //  background-color: deepskyblue;
 }

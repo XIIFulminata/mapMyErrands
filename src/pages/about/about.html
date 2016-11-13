@@ -7,11 +7,12 @@
 </ion-header>
 
 <ion-content padding>
-  <button class="btn delete-list"
+  <button ion-button class="btn delete-list"
+          color="danger"
           (click)="deleteList()"
           *ngIf="items.length > 0">Delete</button>
 
-  <button class="btn delete-list"
+  <button ion-button class="btn delete-list"
           (click)="editList()"
           *ngIf="items.length > 0">Edit</button>
 
@@ -20,9 +21,9 @@
       {{item.displayName}}
       <!--<button ion-button icon-only menuToggle><ion-icon name="ion-edit"></ion-icon></button>-->
 
-        <span class="glyphicon glyphicon-remove align-edit-icons"
-              [hidden]="!showEditIcons"
-              (click)="removeItem(item)"></span>
+      <span class="glyphicon glyphicon-remove align-edit-icons"
+            [hidden]="!showEditIcons"
+            (click)="removeItem(item)"></span>
 
       <span class="glyphicon glyphicon-pencil align-edit-icons"
             [hidden]="!showEditIcons"
@@ -31,7 +32,8 @@
     </ion-item>
   </ion-list>
 
-  <button [hidden]="items.length <= 0"
+  <button ion-button
+          [hidden]="items.length <= 0"
           class="route-button"
           [navPush]="mapPage">
     Find me shortest route
