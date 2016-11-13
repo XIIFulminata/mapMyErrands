@@ -55,3 +55,17 @@ Thumbs.db
 .idea/workspace.xml
 
 .idea/workspace.xml
+
+*.h
+
+*.pbxproj
+
+*.json
+
+
+.tmp/app/app.component.ngfactory.ts
+
+.tmp/*
+platforms/*
+plugins/*
+
