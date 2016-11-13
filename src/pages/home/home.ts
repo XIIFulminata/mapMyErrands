@@ -15,33 +15,37 @@ import {MapsAPILoader} from "angular2-google-maps/core";
 export class HomePage implements OnInit{
   todos: ToDo[];
   addToDo(type){};
+  mapLocation = {};
+  getTodos(){};
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
   constructor(public navCtrl: NavController, private ToDoService: ToDoService, private mapsAPILoader: MapsAPILoader) {
-    //this.todos = this.ToDoService.getToDos();
-    //console.log(this.todos);
     this.addToDo = function (type) {
       ToDoService.addToDo({
         id: Date.now(),
         type: type,
         item: this.item,
-        displayName: type + ' ' + this.item + ' at ' + this.location,
-        location: {lat: 34, lng: 45, placeName: this.location, address: "123 Common Ave", placeID: 34555}
+        displayName: type + ' ' + this.item + ' at ' + this.mapLocation.placeName,
+        //location: {lat: 34, lng: 45, placeName: this.location, address: "123 Common Ave", placeID: 34555}
+        location : this.mapLocation
       });
       this.item = '';
       this.location = '';
-      console.log(this.todos);
+      //console.log(getTodos());
+      //getTodos();
 
-      //let input = document.getElementById('Autocomplete');
+      this.getTodos = function () {
+        this.todos = ToDoService.getToDos();
+        console.log(this.todos);
+      }
 
-      //let autocompleteOrigin = new google.maps.places.Autocomplete(input);
     };
   }
 
       ngOnInit(): void {
-        /*this.mapsAPILoader.load().then(() => {
+        this.mapsAPILoader.load().then(() => {
           let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
             types: ["address"]
           });
@@ -51,16 +55,26 @@ export class HomePage implements OnInit{
 
             //set latitude and longitude
             //this.latitude = place.geometry.location.lat();
-            console.log("LAT:::: "+place.geometry.location.lat());
-            console.log("LNG::::"+place.geometry.location.lng());
+            if (place) {
+              this.mapLocation = {
+                lat: place.geometry.location.lat(),
+                lng: place.geometry.location.lng(),
+                placeName: place.name,
+                address: place.formatted_address,
+                placeID: place.place_id
+              }
+            }
+            console.log(place);
+            console.log("LAT:::: " + place.geometry.location.lat());
+            console.log("LNG::::" + place.geometry.location.lng());
             //this.longitude = place.geometry.location.lng();
           });
-        });*/
+        });
       }
-      getTodos() {
+      /*getTodos() {
         this.todos = this.ToDoService.getToDos();
         console.log(this.todos);
-      }
+      }*/
 }
 
 
